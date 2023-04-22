@@ -8,7 +8,7 @@ import { AppContextProvider } from './store/app-context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppContextProvider>
-    <App />
+      <App />
   </AppContextProvider>
 );
 

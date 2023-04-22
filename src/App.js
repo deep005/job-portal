@@ -1,25 +1,36 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ConfigProvider, theme } from 'antd';
-import AppContext from './store/app-context';
-import './App.scss';
-import MainHeader from './Components/MainHeader/MainHeader';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Login from './Components/Login/Login';
-import Home from './Components/Home/Home';
+import Jobs from './Components/pages/Jobs';
+import Opportunities from './Components/pages/Opportunities';
+import UserProfile from './Components/pages/UserProfile';
+import RootLayout from './Components/pages/Root';
+import Error from './Components/pages/Error';
+
+const router = createBrowserRouter([
+  { path: '/', element: <RootLayout />, errorElement: <Error />,
+    children: [
+      { path: '/', element: <Login />},
+      { path: '/profile', element: <UserProfile />},
+      { path: '/opportunities', element: <Opportunities />},
+      { path: '/jobs', element: <Jobs />}
+    ]
+  },
+  
+]);
+
 
 function App() {
   const { darkAlgorithm } = theme;
-  const ctx = useContext(AppContext);
-  return (
+    return (
     
       <ConfigProvider
         theme={{
           algorithm: darkAlgorithm,
         }}
       >
-        <MainHeader />
-        <main className="main">
-         {!ctx.userProfile ? <Login /> : <Home />} 
-        </main>
+        <RouterProvider router = {router} />
       </ConfigProvider>
   );
 }

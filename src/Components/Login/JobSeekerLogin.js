@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import { Button, Form, Input, Card } from 'antd';
 import AppContext from '../../store/app-context';
+import { useNavigate } from 'react-router-dom';
 
 
 const JobSeekerLogin = () => {
@@ -8,10 +9,12 @@ const JobSeekerLogin = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState(''); 
     const ctx = useContext(AppContext);
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         console.log('Success:', values);
         ctx.onLogin('seeker');
+        navigate('/profile');
       };
       
       const onFinishFailed = (errorInfo) => {

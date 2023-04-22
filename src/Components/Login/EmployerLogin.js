@@ -1,5 +1,6 @@
 import React, {useState, useContext } from 'react';
 import AppContext from '../../store/app-context';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Card } from 'antd';
 
 
@@ -7,10 +8,12 @@ const EmployerLogin = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState(''); 
     const ctx = useContext(AppContext);
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         console.log('Success:', values);
         ctx.onLogin('employer');
+        navigate('/jobs');
       };
       
       const onFinishFailed = (errorInfo) => {

@@ -7,13 +7,13 @@ const AppContext = React.createContext({
 });
 
 export const AppContextProvider = (props) => {
-    const [userProfile, setUSerProfile] = useState('');
+    const [userProfile, setUserProfile] = useState('');
 
   const loginHandler = (profile) => {
-    setUSerProfile(profile);
+    setUserProfile(profile);
   }
   const logoutHandler = () => {
-    setUSerProfile('');
+    setUserProfile('');
   }
     return <AppContext.Provider value={{
         userProfile: userProfile,

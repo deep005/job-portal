@@ -1,16 +1,14 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import JobSeekerLogin from './JobSeekerLogin';
 import EmployerLogin from './EmployerLogin';
-import AppContext from '../../store/app-context';
+import './Login.scss';
 
 const Login = () => {
-    const ctx = useContext(AppContext);
-    console.log("####",ctx);
   return (
-    <>
-    <JobSeekerLogin />
-    <EmployerLogin />
-  </>
+    <div className="login-container">
+      <JobSeekerLogin />
+      <EmployerLogin />
+    </div>
   );
 };
 
