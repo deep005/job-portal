@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import AppContext from '../../store/app-context';
+import AppContext from '../../../store/app-context';
 import { useNavigate } from 'react-router-dom';
 
 const Opportunities = props => {
