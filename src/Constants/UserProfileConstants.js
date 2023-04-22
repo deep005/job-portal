@@ -17,7 +17,7 @@ const yoeOptions = [
 ];
 const degreeOptions = [
     { value: 'B.Tech', label: 'B.Tech' },
-    { value: 'M.Tech', label: 'B.Tech' },
+    { value: 'M.Tech', label: 'M.Tech' },
     { value: 'BCA', label: 'BCA' },
     { value: 'MCA', label: 'MCA' },
     { value: 'BA', label: 'BA' },
