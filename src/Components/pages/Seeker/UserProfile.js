@@ -269,14 +269,14 @@ const UserProfile = props => {
           label="Github username"
           name="githubUserName"
           rules={[
-            { required: true, message: 'Please enter your github userName!' },
+            { required: true, message: '' },
           ]}
         >
           <Input onChange={debouncedOnChangeHandler}/>
         </Form.Item>
 
-        {error && gitUserName.length?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>
-          <p ref={apiErrorInfo} className="error-message">{error}</p>
+        {error || !gitUserName.length?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>
+          <p ref={apiErrorInfo} className="error-message">{error ? error : "Please enter a valid github username!"}</p>
         </Form.Item> : null}
         {!error && !isLoading && gitUserName.length && !userRepos.length?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>
           <p ref={info} className="info-message" >No repos to display!</p>
