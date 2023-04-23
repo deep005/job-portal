@@ -41,6 +41,8 @@ const Navigation = props => {
             </NavLink>
           </li>
         ) : null}
+      </ul>
+      <ul>
         <li>
           <button onClick={ctx.onLogout}>Logout</button>
         </li>
