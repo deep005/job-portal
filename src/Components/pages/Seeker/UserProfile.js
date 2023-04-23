@@ -47,17 +47,8 @@ const UserProfile = props => {
   const [formError, setFormError] = useState(true);
   const formRef = useRef(null);
   const apiErrorInfo = useRef(null);
+  const [gitUserNameTouched, setGitUserNameTouched] = useState(false);
   const { isLoading, error, sendRequest: fetchRepos } = useHttp();
-
-  // useLayoutEffect(()=>{
-  //   if(error || isLoading || gitUserName.length || !userRepos.length){
-  //     info.current.style.display = 'none';
-  //   }
-  //   // if(!error || !gitUserName.length){
-  //   //   apiErrorInfo.current.style.display = 'none';
-  //   // }
-  // }, [error, isLoading, gitUserName, userRepos]);
-
   useEffect(() => {
     if (appCtx.userProfile !== 'seeker') {
       navigate('/');
@@ -153,6 +144,7 @@ const UserProfile = props => {
   const onChangeHandler = event => {
     setGitUserName(event.target.value);
     setUserRepos([]);
+    setGitUserNameTouched(true);
     currentPage.current = 0;
     nextScroll.current = true;
   };
@@ -275,7 +267,7 @@ const UserProfile = props => {
           <Input onChange={debouncedOnChangeHandler}/>
         </Form.Item>
 
-        {error || !gitUserName.length?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>
+        {error || (!gitUserName.length && gitUserNameTouched)?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>
           <p ref={apiErrorInfo} className="error-message">{error ? error : "Please enter a valid github username!"}</p>
         </Form.Item> : null}
         {!error && !isLoading && gitUserName.length && !userRepos.length?<Form.Item  wrapperCol={{ offset: 7, span: 10 }} style={{marginTop: '-30px'}}>

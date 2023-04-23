@@ -1,1 +1,1 @@
-export const AuthToken = "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";
+export const AuthToken = "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";
