@@ -33,7 +33,19 @@ const skills = [
     { value: 'ROR', label: 'ROR' },
     { value: 'Java', label: 'Java' },
     { value: 'Node', label: 'Node' },
-    { value: 'Kotlin', label: 'Kotlin' }
+    { value: 'Kotlin', label: 'Kotlin' },
+    {value: 'Accessibility', label: 'Accessibility'},
+    {value: 'microservices', label: 'microservices'},
+    {value: 'IOS', label: 'IOS'}
+
+];
+
+const minSalaryOptions = [
+    { value: '$10', label: '$10' },
+    { value: '$20', label: '$20' },
+    { value: '$50', label: '$50' },
+    { value: '$100', label: '$100' },
+    { value: '$150', label: '$150' }
 ]
 
 const userProfileConstants = {
@@ -41,7 +53,8 @@ const userProfileConstants = {
     locationOptions: locationOptions,
     yoeOptions: yoeOptions,
     degreeOptions: degreeOptions,
-    skillsOptions: skills
+    skillsOptions: skills,
+    minSalaryOptions: minSalaryOptions
 }
 
 export default userProfileConstants;

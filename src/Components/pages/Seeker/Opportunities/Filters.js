@@ -2,12 +2,13 @@ import { Card, Select } from "antd";
 import UserProfileConstants from "../../../../Constants/UserProfileConstants";
 
 const { Option } = Select;
-const { skillsOptions } = UserProfileConstants;
+const { skillsOptions, minSalaryOptions } = UserProfileConstants;
 
 const FiltersCard = (props) => {
-const {onSetSkills, onSetMinSalary, resetOpportunities} = props;
+const {skillsRef, onSetMinSalary, resetOpportunities} = props;
 
     const onSkillsChange = (skills) => {
+      skillsRef.current = skills
         resetOpportunities(true);
         //onSetSkills(skills);  
     }
@@ -34,10 +35,8 @@ const {onSetSkills, onSetMinSalary, resetOpportunities} = props;
           marginRight: "20px",
           minWidth: "200px",
         }}
+        options={minSalaryOptions}
       >
-        <Option value="option1">Option 1</Option>
-        <Option value="option2">Option 2</Option>
-        <Option value="option3">Option 3</Option>
       </Select>
 
       <label
