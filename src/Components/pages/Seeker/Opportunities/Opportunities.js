@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
-import AppContext from "../../../store/app-context";
+import AppContext from "../../../../store/app-context";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Divider, List, Skeleton, Button, message } from "antd";
@@ -24,7 +24,7 @@ const Opportunities = (props) => {
 
   const worker = useMemo(() => {
     return new Worker(
-      new URL("../../../Workers/jobListWorker.js", import.meta.url)
+      new URL("../../../../Workers/jobListWorker.js", import.meta.url)
     );
   }, []);
 

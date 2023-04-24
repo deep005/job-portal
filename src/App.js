@@ -3,7 +3,7 @@ import { ConfigProvider, theme } from 'antd';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Login from './Components/Login/Login';
 import Jobs from './Components/pages/Employer/Jobs';
-import Opportunities from './Components/pages/Seeker/Opportunities';
+import Opportunities from './Components/pages/Seeker/Opportunities/Opportunities';
 import UserProfile from './Components/pages/Seeker/UserProfile';
 import RootLayout from './Components/pages/Root';
 import Error from './Components/pages/Error';
