@@ -8,7 +8,7 @@ const FiltersCard = (props) => {
 const {onSetSkills, onSetMinSalary, resetOpportunities} = props;
 
     const onSkillsChange = (skills) => {
-        resetOpportunities([]);
+        resetOpportunities(true);
         //onSetSkills(skills);  
     }
   return (

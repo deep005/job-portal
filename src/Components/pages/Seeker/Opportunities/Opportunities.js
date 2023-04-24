@@ -10,13 +10,16 @@ import AppContext from "../../../../store/app-context";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Divider, List, Skeleton, Button, message } from "antd";
+import FiltersCard from './Filters'; 
 
 const Opportunities = (props) => {
   const appCtx = useContext(AppContext);
   const navigate = useNavigate();
   const [opprotunities, setOpportunities] = useState([]);
+  //const [opportunitiesReRender, set]
   const [filterSkills, setFilterSkills] = useState("");
   const [filterMinSalary, setFilterMinSlary] = useState("");
+  const [reRender, setReRender] = useState(false);
   const currentPage = useRef(0);
   const pageSize = useRef(20);
   const nextScroll = useRef(true);
@@ -35,6 +38,7 @@ const Opportunities = (props) => {
   }, [appCtx, navigate]);
 
   const fetchMoreData = useCallback(() => {
+    console.log("$$$$$4");
     if (window.Worker !== "undefined") {
       const requestObj = {
         filterSkills: filterSkills,
@@ -50,6 +54,7 @@ const Opportunities = (props) => {
           const userReposUpdated = userReposCopy.concat(event.data.resJobs);
           return userReposUpdated;
         });
+        setReRender(false);
         if (!event.data.resJobs.length) {
           nextScroll.current = false;
         }
@@ -58,7 +63,17 @@ const Opportunities = (props) => {
     }
   }, [worker, filterSkills, filterMinSalary]);
 
+  useEffect(()=>{
+    if(reRender){
+      currentPage.current = 0;
+      nextScroll.current = true;
+      setOpportunities([]);
+      fetchMoreData();
+    }
+  }, [reRender, fetchMoreData])
+
   useEffect(() => {
+    
     fetchMoreData();
     return () => {
       if (window.Worker !== "undefined") {
@@ -92,6 +107,7 @@ const Opportunities = (props) => {
   return (
     <>
       {contextHolder}
+      <FiltersCard onSetSkills={setFilterSkills} onSetMinSalary={setFilterMinSlary} resetOpportunities={setReRender}/>
       <div
         id="scrollableDiv"
         style={{
