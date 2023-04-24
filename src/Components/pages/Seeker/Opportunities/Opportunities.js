@@ -10,7 +10,7 @@ import AppContext from "../../../../store/app-context";
 import { useNavigate } from "react-router-dom";
 import OpportunityListItem from "../../../UI/OpportunityListItem";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Divider, List, Skeleton, Button, message, Spin, Modal } from "antd";
+import { Divider, List, Skeleton, message, Spin, Modal } from "antd";
 import FiltersCard from "./Filters";
 
 const Opportunities = (props) => {
@@ -38,7 +38,6 @@ const Opportunities = (props) => {
   }, [appCtx, navigate]);
 
   const fetchMoreData = useCallback(() => {
-    console.log("$$$$$4", filterMinSalary.current);
     if (window.Worker !== "undefined") {
       const requestObj = {
         filterSkills: filterSkills.current,
@@ -58,7 +57,6 @@ const Opportunities = (props) => {
         if (!event.data.resJobs.length) {
           nextScroll.current = false;
         }
-        console.log("%%%%%%", event.data.resJobs);
       };
     }
   }, [worker, filterSkills, filterMinSalary]);
@@ -119,6 +117,7 @@ const Opportunities = (props) => {
             overflow: "auto",
             padding: "0 16px",
             scrollbarTrackColor: "dark",
+            width: "95.8vw",
             border: "1px solid rgba(140, 140, 140, 0.35)",
           }}
         >

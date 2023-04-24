@@ -107,15 +107,12 @@ const UserProfile = props => {
     }
     console.log('Success:', JSON.parse(JSON.stringify(values)));
     window.localStorage.setItem('userData', JSON.stringify(values));
-    // ctx.onLogin('employer');
-    // navigate('/jobs');
   };
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
   const onValuesChange = (changedValues, allValues) => {
-    console.log("$$$$$", allValues);
     const skills = !Array.isArray(allValues.skills)
       ? undefined
       : !allValues.skills.length
