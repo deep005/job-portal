@@ -7,6 +7,7 @@ const postings =  [
       tags: ["UI/UX", "MicroServices", "Problem Solving"],
       company: "Dis Parturient Industries",
       contactInfo: "(493) 241-6874",
+      poc: "Narayan Rane",
       applicants: 2
     },
     {
@@ -15,8 +16,9 @@ const postings =  [
       skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
       minYOE: 6,
       tags: ["UI/UX", "MicroServices"],
-      company: "Mi Lorem Corporation",
+      company: "Dis Parturient Industries",
       contactInfo: "1-584-673-3188",
+      poc: "Narayan Rane",
       applicants: 2
     },
     {
@@ -25,8 +27,9 @@ const postings =  [
       skills: ["java", "HTML", "Express", "php"],
       minYOE: 5,
       tags: ["Frontend", "Backend"],
-      company: "Tortor PC",
+      company: "Dis Parturient Industries",
       contactInfo: "1-183-957-5933",
+      poc: "Narayan Rane",
       applicants: 2
     },
     {
@@ -37,6 +40,7 @@ const postings =  [
       tags: ["Design", "Problem Solving", "MicroServices"],
       company: "Mauris Sapien Company",
       contactInfo: "(741) 463-3604",
+      poc: "Narayan Rane",
       applicants: 1
     },
     {
@@ -47,6 +51,172 @@ const postings =  [
       tags: ["Design", "MicroServices", "Frontend"],
       company: "Enim Nunc Company",
       contactInfo: "1-328-669-5153",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309AC",
+      designation: "SSE",
+      skills: ["React", "php", "Express", "Android", "java"],
+      minYOE: 7,
+      tags: ["UI/UX", "MicroServices", "Problem Solving"],
+      company: "Dis Parturient Industries",
+      contactInfo: "(493) 241-6874",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75AC",
+      designation: "SSE-UI",
+      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      minYOE: 6,
+      tags: ["UI/UX", "MicroServices"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-584-673-3188",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1RX",
+      designation: "Sr. Data Scientist",
+      skills: ["java", "HTML", "Express", "php"],
+      minYOE: 5,
+      tags: ["Frontend", "Backend"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-183-957-5933",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88AQ",
+      designation: "Senior Engineering Manager",
+      skills: ["java", "php", "Node", "HTML"],
+      minYOE: 2,
+      tags: ["Design", "Problem Solving", "MicroServices"],
+      company: "Mauris Sapien Company",
+      contactInfo: "(741) 463-3604",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DART",
+      designation: "Principal Engineer",
+      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      minYOE: 7,
+      tags: ["Design", "MicroServices", "Frontend"],
+      company: "Enim Nunc Company",
+      contactInfo: "1-328-669-5153",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309BC",
+      designation: "SSE",
+      skills: ["React", "php", "Express", "Android", "java"],
+      minYOE: 7,
+      tags: ["UI/UX", "MicroServices", "Problem Solving"],
+      company: "Dis Parturient Industries",
+      contactInfo: "(493) 241-6874",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75BC",
+      designation: "SSE-UI",
+      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      minYOE: 6,
+      tags: ["UI/UX", "MicroServices"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-584-673-3188",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1DE",
+      designation: "Sr. Data Scientist",
+      skills: ["java", "HTML", "Express", "php"],
+      minYOE: 5,
+      tags: ["Frontend", "Backend"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-183-957-5933",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88EQ",
+      designation: "Senior Engineering Manager",
+      skills: ["java", "php", "Node", "HTML"],
+      minYOE: 2,
+      tags: ["Design", "Problem Solving", "MicroServices"],
+      company: "Mauris Sapien Company",
+      contactInfo: "(741) 463-3604",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DAWE",
+      designation: "Principal Engineer",
+      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      minYOE: 7,
+      tags: ["Design", "MicroServices", "Frontend"],
+      company: "Enim Nunc Company",
+      contactInfo: "1-328-669-5153",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309DE",
+      designation: "SSE",
+      skills: ["React", "php", "Express", "Android", "java"],
+      minYOE: 7,
+      tags: ["UI/UX", "MicroServices", "Problem Solving"],
+      company: "Dis Parturient Industries",
+      contactInfo: "(493) 241-6874",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75DE",
+      designation: "SSE-UI",
+      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      minYOE: 6,
+      tags: ["UI/UX", "MicroServices"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-584-673-3188",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1WF",
+      designation: "Sr. Data Scientist",
+      skills: ["java", "HTML", "Express", "php"],
+      minYOE: 5,
+      tags: ["Frontend", "Backend"],
+      company: "Dis Parturient Industries",
+      contactInfo: "1-183-957-5933",
+      poc: "Narayan Rane",
+      applicants: 2
+    },
+    {
+      jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88RT",
+      designation: "Senior Engineering Manager",
+      skills: ["java", "php", "Node", "HTML"],
+      minYOE: 2,
+      tags: ["Design", "Problem Solving", "MicroServices"],
+      company: "Mauris Sapien Company",
+      contactInfo: "(741) 463-3604",
+      poc: "Narayan Rane",
+      applicants: 1
+    },
+    {
+      jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DA-1",
+      designation: "Principal Engineer",
+      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      minYOE: 7,
+      tags: ["Design", "MicroServices", "Frontend"],
+      company: "Enim Nunc Company",
+      contactInfo: "1-328-669-5153",
+      poc: "Narayan Rane",
       applicants: 1
     }
   ];
