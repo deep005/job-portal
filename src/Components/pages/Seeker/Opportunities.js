@@ -20,11 +20,12 @@ const Opportunities = (props) => {
   const currentPage = useRef(0);
   const pageSize = useRef(20);
   const nextScroll = useRef(true);
-  const [isLoading, setIsLoading] = useState(true);
   const [messageApi, contextHolder] = message.useMessage();
 
   const worker = useMemo(() => {
-    return new Worker(new URL("./worker.js", import.meta.url));
+    return new Worker(
+      new URL("../../../Workers/jobListWorker.js", import.meta.url)
+    );
   }, []);
 
   useEffect(() => {
@@ -42,10 +43,8 @@ const Opportunities = (props) => {
         pageSize: pageSize.current,
       };
       worker.postMessage(requestObj);
-      setIsLoading(true);
       worker.onmessage = (event) => {
         currentPage.current = currentPage.current + 1;
-        setIsLoading(false);
         setOpportunities((prevState) => {
           const userReposCopy = [...prevState];
           const userReposUpdated = userReposCopy.concat(event.data.resJobs);
@@ -92,48 +91,61 @@ const Opportunities = (props) => {
 
   return (
     <>
-    {contextHolder}
-    <InfiniteScroll
-      dataLength={opprotunities.length}
-      next={fetchMoreData}
-      style={{
-        minWidth: "95vw",
-        border: "1px solid rgba(140, 140, 140, 0.35)",
-      }}
-      hasMore={nextScroll.current}
-      loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
-      endMessage={<Divider plain>End of List!</Divider>}
-    >
-      <List
-        dataSource={opprotunities}
-        // itemLayout="vertical"
-        renderItem={(opprotunity, index) => (
-          <List.Item
-            style={{
-              padding: "10px",
-            }}
-            key={opprotunity.id}
-            actions={[
-              <Button
-                type="primary"
-                disabled={opprotunity.applied ? opprotunity.applied : false}
-                onClick={onApplyHandler.bind(null, opprotunity)}
+      {contextHolder}
+      <div
+        id="scrollableDiv"
+        style={{
+          height: "calc(100vh - 16rem)",
+          overflow: "auto",
+          padding: "0 16px",
+          scrollbarTrackColor: "dark",
+          border: "1px solid rgba(140, 140, 140, 0.35)",
+        }}
+      >
+        <InfiniteScroll
+          dataLength={opprotunities.length}
+          next={fetchMoreData}
+          scrollableTarget="scrollableDiv"
+          style={{
+            minWidth: "95vw",
+            // border: "1px solid rgba(140, 140, 140, 0.35)",
+          }}
+          hasMore={nextScroll.current}
+          loader={<Skeleton avatar paragraph={{ rows: 3 }} active />}
+          endMessage={<Divider plain>End of List!</Divider>}
+        >
+          <List
+            dataSource={opprotunities}
+            renderItem={(opprotunity, index) => (
+              <List.Item
+                style={{
+                  padding: "10px",
+                }}
+                key={opprotunity.id}
+                actions={[
+                  <Button
+                    type="primary"
+                    disabled={opprotunity.applied ? opprotunity.applied : false}
+                    onClick={onApplyHandler.bind(null, opprotunity)}
+                  >
+                    Apply
+                  </Button>,
+                ]}
               >
-                Apply
-              </Button>,
-            ]}
-          >
-            <List.Item.Meta
-              title={<h2>{opprotunity.companyName}</h2>}
-              description={
-                opprotunity.position ? opprotunity.position : "Data Scientist"
-              }
-            />
-            {<div>{opprotunity.skills}</div>}
-          </List.Item>
-        )}
-      />
-    </InfiniteScroll>
+                <List.Item.Meta
+                  title={<h2>{opprotunity.companyName}</h2>}
+                  description={
+                    opprotunity.position
+                      ? opprotunity.position
+                      : "Data Scientist"
+                  }
+                />
+                {<div>{opprotunity.skills}</div>}
+              </List.Item>
+            )}
+          />
+        </InfiniteScroll>
+      </div>
     </>
   );
 };

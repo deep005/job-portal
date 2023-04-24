@@ -1,4 +1,4 @@
-import JobList from "../../../Data/JobList";
+import JobList from "../Data/JobList";
 
 // eslint-disable-next-line no-restricted-globals
 onmessage = (event) => {
@@ -13,7 +13,5 @@ onmessage = (event) => {
     });
   }, 2000);
 
-  // postMessage({
-  //     value: event.data.value
-  // });
+  
 };
