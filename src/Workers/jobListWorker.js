@@ -5,7 +5,8 @@ onmessage = (event) => {
   
   const { filterSkills, filterMinSalary, currentPage, pageSize } = event.data;
 
-  const skillsFilteredJobs = [];
+  let skillsFilteredJobs = [];
+  let slarayFilterJobs = [];
   if(filterSkills.length){
     for(let i = 0 ;i<JobList.length; i++){
       for(let j=0; j<filterSkills.length; j++){
@@ -14,14 +15,23 @@ onmessage = (event) => {
         }
       }
     }
+  }else{
+    skillsFilteredJobs = [...JobList]
+  }
+  if(filterMinSalary){
+    const minSalaryFilterValue = parseFloat(filterMinSalary.substring(1));
+    for(let i = 0 ;i<skillsFilteredJobs.length; i++){
+      const perHour = parseFloat(skillsFilteredJobs[i].perHour.substring(1));
+      if(minSalaryFilterValue < perHour){
+        slarayFilterJobs.push(skillsFilteredJobs[i])
+      }
+    }
+  }else{
+    slarayFilterJobs = [...skillsFilteredJobs]
   }
 
-  let resJobs =[];
-  if(skillsFilteredJobs.length){
-    resJobs = skillsFilteredJobs.slice((currentPage*pageSize), ((currentPage+1)*pageSize));
-  }else{
-   resJobs = JobList.slice((currentPage*pageSize), ((currentPage+1)*pageSize));
-  }
+  const resJobs = slarayFilterJobs.slice((currentPage*pageSize), ((currentPage+1)*pageSize));
+  
   setTimeout(() => {
     // eslint-disable-next-line no-restricted-globals
     postMessage({

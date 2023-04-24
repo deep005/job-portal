@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import AppContext from "../../../../store/app-context";
 import { useNavigate } from "react-router-dom";
+import OpportunityListItem from "../../../UI/OpportunityListItem";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Divider, List, Skeleton, Button, message, Spin, Modal } from "antd";
 import FiltersCard from "./Filters";
@@ -16,7 +17,6 @@ const Opportunities = (props) => {
   const appCtx = useContext(AppContext);
   const navigate = useNavigate();
   const [opprotunities, setOpportunities] = useState([]);
-  //const [opportunitiesReRender, set]
   const filterSkills = useRef([]);
   const filterMinSalary = useRef("");
   const [reRender, setReRender] = useState(false);
@@ -38,7 +38,7 @@ const Opportunities = (props) => {
   }, [appCtx, navigate]);
 
   const fetchMoreData = useCallback(() => {
-    console.log("$$$$$4", filterSkills.current);
+    console.log("$$$$$4", filterMinSalary.current);
     if (window.Worker !== "undefined") {
       const requestObj = {
         filterSkills: filterSkills.current,
@@ -106,77 +106,49 @@ const Opportunities = (props) => {
   return (
     <>
       {contextHolder}
-        <>
-          <FiltersCard
-            skillsRef={filterSkills}
-            salaryRef={filterMinSalary}
-            resetOpportunities={setReRender}
-          />
-          <div
-            id="scrollableDiv"
-            style={{
-              height: "calc(100vh - 16rem)",
-              overflow: "auto",
-              padding: "0 16px",
-              scrollbarTrackColor: "dark",
-              border: "1px solid rgba(140, 140, 140, 0.35)",
-            }}
-          >
-            <InfiniteScroll
-              dataLength={opprotunities.length}
-              next={fetchMoreData}
-              scrollableTarget="scrollableDiv"
-              style={{
-                minWidth: "95vw",
-                // border: "1px solid rgba(140, 140, 140, 0.35)",
-              }}
-              hasMore={nextScroll.current}
-              loader={<Skeleton avatar paragraph={{ rows: 3 }} active />}
-              endMessage={<Divider plain>End of List!</Divider>}
-            >
-              <List
-                dataSource={opprotunities}
-                renderItem={(opprotunity, index) => (
-                  <List.Item
-                    style={{
-                      padding: "10px",
-                    }}
-                    key={opprotunity.id}
-                    actions={[
-                      <Button
-                        type="primary"
-                        disabled={
-                          opprotunity.applied ? opprotunity.applied : false
-                        }
-                        onClick={onApplyHandler.bind(null, opprotunity)}
-                      >
-                        Apply
-                      </Button>,
-                    ]}
-                  >
-                    <List.Item.Meta
-                      title={<h2>{opprotunity.companyName}</h2>}
-                      description={
-                        opprotunity.position
-                          ? opprotunity.position
-                          : "Data Scientist"
-                      }
-                    />
-                    {<div>{opprotunity.skills}</div>}
-                  </List.Item>
-                )}
-              />
-            </InfiniteScroll>
-          </div>
-        </>
-        <Modal
-          centered
-          open ={reRender}
-          footer={null}
-          closable={false}
+      <>
+        <FiltersCard
+          skillsRef={filterSkills}
+          salaryRef={filterMinSalary}
+          resetOpportunities={setReRender}
+        />
+        <div
+          id="scrollableDiv"
+          style={{
+            height: "calc(100vh - 16rem)",
+            overflow: "auto",
+            padding: "0 16px",
+            scrollbarTrackColor: "dark",
+            border: "1px solid rgba(140, 140, 140, 0.35)",
+          }}
         >
-          <Spin size="large"></Spin>
-        </Modal>
+          <InfiniteScroll
+            dataLength={opprotunities.length}
+            next={fetchMoreData}
+            scrollableTarget="scrollableDiv"
+            style={{
+              minWidth: "95vw",
+            }}
+            hasMore={nextScroll.current}
+            loader={<Skeleton avatar paragraph={{ rows: 3 }} active />}
+            endMessage={<Divider plain>End of List!</Divider>}
+          >
+            <List
+              dataSource={opprotunities}
+              renderItem={(opprotunity, index) => (
+                <OpportunityListItem
+                opprotunity={opprotunity}
+                  key={opprotunity.id}
+                  onClickHandler={onApplyHandler.bind(null, opprotunity)}
+                />
+              )}
+            />
+          </InfiniteScroll>
+        </div>
+      </>
+      <Modal centered open={reRender} footer={null} closable={false}>
+        <Spin size="large"></Spin>
+      </Modal>
     </>
   );
 };
