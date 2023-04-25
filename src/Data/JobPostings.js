@@ -2,7 +2,7 @@ const postings =  [
     {
       jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309",
       designation: "SSE",
-      skills: ["React", "php", "Express", "Android", "java"],
+      requirements: "React, php, Express, Android, java",
       minYOE: 7,
       tags: ["UI/UX", "MicroServices", "Problem Solving"],
       company: "Dis Parturient Industries",
@@ -13,7 +13,7 @@ const postings =  [
     {
       jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75",
       designation: "SSE-UI",
-      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      requirements: "Kotlin, Larvel, ROR, JS, php, Express",
       minYOE: 6,
       tags: ["UI/UX", "MicroServices"],
       company: "Dis Parturient Industries",
@@ -24,7 +24,7 @@ const postings =  [
     {
       jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1",
       designation: "Sr. Data Scientist",
-      skills: ["java", "HTML", "Express", "php"],
+      requirements: "java, HTML, Express, php",
       minYOE: 5,
       tags: ["Frontend", "Backend"],
       company: "Dis Parturient Industries",
@@ -35,7 +35,7 @@ const postings =  [
     {
       jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88",
       designation: "Senior Engineering Manager",
-      skills: ["java", "php", "Node", "HTML"],
+      requirements: "java, php, Node, HTML",
       minYOE: 2,
       tags: ["Design", "Problem Solving", "MicroServices"],
       company: "Mauris Sapien Company",
@@ -46,7 +46,7 @@ const postings =  [
     {
       jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DA",
       designation: "Principal Engineer",
-      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      requirements: "Kotlin, Android, HTML, php, React",
       minYOE: 7,
       tags: ["Design", "MicroServices", "Frontend"],
       company: "Enim Nunc Company",
@@ -57,7 +57,7 @@ const postings =  [
     {
       jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309AC",
       designation: "SSE",
-      skills: ["React", "php", "Express", "Android", "java"],
+      requirements: "React, php, Express, Android, java",
       minYOE: 7,
       tags: ["UI/UX", "MicroServices", "Problem Solving"],
       company: "Dis Parturient Industries",
@@ -68,7 +68,7 @@ const postings =  [
     {
       jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75AC",
       designation: "SSE-UI",
-      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      requirements: "Kotlin, Larvel, ROR, JS, php, Express",
       minYOE: 6,
       tags: ["UI/UX", "MicroServices"],
       company: "Dis Parturient Industries",
@@ -79,7 +79,7 @@ const postings =  [
     {
       jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1RX",
       designation: "Sr. Data Scientist",
-      skills: ["java", "HTML", "Express", "php"],
+      requirements: "java, HTML, Express, php",
       minYOE: 5,
       tags: ["Frontend", "Backend"],
       company: "Dis Parturient Industries",
@@ -90,7 +90,7 @@ const postings =  [
     {
       jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88AQ",
       designation: "Senior Engineering Manager",
-      skills: ["java", "php", "Node", "HTML"],
+      requirements: "java, php, Node, HTML",
       minYOE: 2,
       tags: ["Design", "Problem Solving", "MicroServices"],
       company: "Mauris Sapien Company",
@@ -101,7 +101,7 @@ const postings =  [
     {
       jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DART",
       designation: "Principal Engineer",
-      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      requirements: "Kotlin, Android, HTML, php, React",
       minYOE: 7,
       tags: ["Design", "MicroServices", "Frontend"],
       company: "Enim Nunc Company",
@@ -112,7 +112,7 @@ const postings =  [
     {
       jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309BC",
       designation: "SSE",
-      skills: ["React", "php", "Express", "Android", "java"],
+      requirements: "React, php, Express, Android, java",
       minYOE: 7,
       tags: ["UI/UX", "MicroServices", "Problem Solving"],
       company: "Dis Parturient Industries",
@@ -123,7 +123,7 @@ const postings =  [
     {
       jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75BC",
       designation: "SSE-UI",
-      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      requirements: "Kotlin, Larvel, ROR, JS, php, Express",
       minYOE: 6,
       tags: ["UI/UX", "MicroServices"],
       company: "Dis Parturient Industries",
@@ -134,7 +134,7 @@ const postings =  [
     {
       jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1DE",
       designation: "Sr. Data Scientist",
-      skills: ["java", "HTML", "Express", "php"],
+      requirements: "java, HTML, Express, php",
       minYOE: 5,
       tags: ["Frontend", "Backend"],
       company: "Dis Parturient Industries",
@@ -145,7 +145,7 @@ const postings =  [
     {
       jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88EQ",
       designation: "Senior Engineering Manager",
-      skills: ["java", "php", "Node", "HTML"],
+      requirements: "java, php, Node, HTML",
       minYOE: 2,
       tags: ["Design", "Problem Solving", "MicroServices"],
       company: "Mauris Sapien Company",
@@ -156,7 +156,7 @@ const postings =  [
     {
       jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DAWE",
       designation: "Principal Engineer",
-      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      requirements: "Kotlin, Android, HTML, php, React",
       minYOE: 7,
       tags: ["Design", "MicroServices", "Frontend"],
       company: "Enim Nunc Company",
@@ -167,7 +167,7 @@ const postings =  [
     {
       jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309DE",
       designation: "SSE",
-      skills: ["React", "php", "Express", "Android", "java"],
+      requirements: "React, php, Express, Android, java",
       minYOE: 7,
       tags: ["UI/UX", "MicroServices", "Problem Solving"],
       company: "Dis Parturient Industries",
@@ -178,7 +178,7 @@ const postings =  [
     {
       jobId: "97FA9D34-6418-5E3E-0796-2A32D567AA75DE",
       designation: "SSE-UI",
-      skills: ["Kotlin", "Larvel", "ROR", "JS", "php", "Express"],
+      requirements: "Kotlin, Larvel, ROR, JS, php, Express",
       minYOE: 6,
       tags: ["UI/UX", "MicroServices"],
       company: "Dis Parturient Industries",
@@ -189,7 +189,7 @@ const postings =  [
     {
       jobId: "8ECD3B44-7C64-D1DC-64E2-3886C3C845B1WF",
       designation: "Sr. Data Scientist",
-      skills: ["java", "HTML", "Express", "php"],
+      requirements: "java, HTML, Express, php",
       minYOE: 5,
       tags: ["Frontend", "Backend"],
       company: "Dis Parturient Industries",
@@ -200,7 +200,7 @@ const postings =  [
     {
       jobId: "BBEEFC8C-98D1-3D97-612B-717E45466B88RT",
       designation: "Senior Engineering Manager",
-      skills: ["java", "php", "Node", "HTML"],
+      requirements: "java, php, Node, HTML",
       minYOE: 2,
       tags: ["Design", "Problem Solving", "MicroServices"],
       company: "Mauris Sapien Company",
@@ -211,7 +211,7 @@ const postings =  [
     {
       jobId: "FC7870CC-3C5A-F5D5-D611-457E187754DA-1",
       designation: "Principal Engineer",
-      skills: ["Kotlin", "Android", "HTML", "php", "React"],
+      requirements: "Kotlin, Android, HTML, php, React",
       minYOE: 7,
       tags: ["Design", "MicroServices", "Frontend"],
       company: "Enim Nunc Company",

@@ -17,7 +17,6 @@ import {
   Divider,
   List,
   Skeleton,
-  message,
   Modal,
   Result,
   Spin,
@@ -169,7 +168,7 @@ const UserProfile = (props) => {
       <Card
         title="Enter Your Details"
         bordered={false}
-        style={{ width: 700, boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)" }}
+        style={{ width: 700, boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)", marginTop: "5rem" }}
         headStyle={{ textAlign: "center", fontSize: "2.5rem" }}
         bodyStyle={{ fontSize: "1.5rem" }}
       >

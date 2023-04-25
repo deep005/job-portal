@@ -2,7 +2,6 @@ import { List, Button } from "antd";
 
 const JobPostingsListListItem = (props) => {
   const { postedJob, onClickHandler } = props;
-  const skills = postedJob.skills.join(", ");
   const tags = postedJob.tags.join(", ");
   return (
     <List.Item
@@ -26,7 +25,7 @@ const JobPostingsListListItem = (props) => {
         }}
       >
         <div>
-          <div>skills: {skills} </div>
+          <div>Requirements: {postedJob.requirements} </div>
           <div>Minimum YOE: {postedJob.minYOE}</div>
           <div>Tags: {tags}</div>
           <div>Point of Contact: {postedJob.poc}</div>

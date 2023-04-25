@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import OpportunityListItem from "../../../UI/OpportunityListItem";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Divider, List, Skeleton, message, Spin, Modal } from "antd";
-import FiltersCard from "./Filters";
+import FiltersCard from "./FiltersCard";
 
 const Opportunities = (props) => {
   const appCtx = useContext(AppContext);

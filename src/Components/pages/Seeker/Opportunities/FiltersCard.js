@@ -18,7 +18,7 @@ const FiltersCard = (props) => {
     <Card
       style={{
         minWidth: "97.5vw",
-        borderRadius: 0,
+        border: 0,
         display: "flex",
         justifyContent: "center",
       }}

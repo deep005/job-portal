@@ -13,7 +13,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import JobPostingsListListItem from "../../UI/JobPostingsListListItem";
 import { Divider, List, Skeleton, Spin, Modal, Collapse } from "antd";
 import ApplicantListItem from "../../UI/ApplicantListItem";
+import AddJobCard from "./AddJobCard";
+
 const { Panel } = Collapse;
+
 
 const Jobs = (props) => {
   const appCtx = useContext(AppContext);
@@ -26,6 +29,7 @@ const Jobs = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const nextScroll = useRef(true);
   const timerRef = useRef(null);
+  const [jobCreation, setJobCreation] = useState(false)
 
   const jobsPostedWorker = useMemo(() => {
     return new Worker(
@@ -108,13 +112,24 @@ const Jobs = (props) => {
 
   return (
     <>
+    <AddJobCard onJobCreation={setJobCreation}/>
+    <div
+          id="scrollableDiv"
+          style={{
+            height: "calc(100vh - 16rem)",
+            overflow: "auto",
+            padding: "0 16px",
+            scrollbarTrackColor: "dark",
+            width: "95.8vw",
+            border: "1px solid rgba(140, 140, 140, 0.35)",
+          }}
+        >
         <InfiniteScroll
           dataLength={postedJobs.length}
+          scrollableTarget="scrollableDiv"
           next={fetchMorePostedJobsData}
           style={{
             minWidth: "95vw",
-            border: '1px solid rgba(140, 140, 140, 0.35)',
-            padding: '10px'
           }}
           hasMore={nextScroll.current}
           loader={<Skeleton avatar paragraph={{ rows: 3 }} active />}
@@ -131,6 +146,7 @@ const Jobs = (props) => {
             )}
           />
         </InfiniteScroll>
+        </div>
       <Modal centered open={isLoading} footer={null} closable={false}>
         <Spin size="large"></Spin>
       </Modal>

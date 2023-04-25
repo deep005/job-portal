@@ -11,8 +11,8 @@ body {
 
 main {
   min-height: calc(100vh - 15rem);
-  min-width: 100vw;
-  margin-top: 5rem;
+  min-width: 98vw;
+  margin-top: 0;
   color: #fff;
   display: flex;
   flex-direction: column;
