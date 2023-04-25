@@ -25,7 +25,7 @@ const OpportunityListItem = (props) => {
         style={{
           display: "flex",
           justifyContent: "flex-start",
-          fontSize: "16px",
+          fontSize: "18px",
           width: "50%",
         }}
       >

@@ -13,6 +13,7 @@ const JobSeekerLogin = () => {
 
     const onFinish = (values) => {
         console.log('Success:', values);
+        localStorage.setItem('userProfile', 'seeker');
         ctx.onLogin('seeker');
         navigate('/profile');
       };

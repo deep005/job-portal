@@ -1,4 +1,4 @@
-const applicants = [
+const Applicants = [
     {
         jobId: "E9C88C44-9146-938C-A2F5-D9C4D49C1309",
         applicants: [
@@ -6,6 +6,7 @@ const applicants = [
                 firstName: "Deep",
                 gender: "Male",
                 location: "Bangalore",
+                currPosition: 'SSE',
                 yoe: 5,
                 contact: "8867634141",
                 education: "B.Tech",
@@ -14,6 +15,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -29,6 +31,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -38,6 +41,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -53,6 +57,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -62,6 +67,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -77,6 +83,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -92,6 +99,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -107,6 +115,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -116,6 +125,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -131,6 +141,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -140,6 +151,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -155,6 +167,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -164,6 +177,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -179,6 +193,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -194,6 +209,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -209,6 +225,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -218,6 +235,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -233,6 +251,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -242,6 +261,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -257,6 +277,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -266,6 +287,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -281,6 +303,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -296,6 +319,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -310,6 +334,7 @@ const applicants = [
         applicants: [
             {
                 firstName: "Deep",
+                currPosition: 'SSE',
                 gender: "Male",
                 location: "Bangalore",
                 yoe: 5,
@@ -320,6 +345,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -335,6 +361,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -344,6 +371,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -359,6 +387,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -368,6 +397,7 @@ const applicants = [
             {
                 firstName: "Rabi",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 7,
                 contact: "88654634141",
@@ -383,6 +413,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -398,6 +429,7 @@ const applicants = [
             {
                 firstName: "Deep",
                 gender: "Male",
+                currPosition: 'SSE',
                 location: "Bangalore",
                 yoe: 5,
                 contact: "8867634141",
@@ -408,4 +440,4 @@ const applicants = [
         
     }
 ];
-export default applicants;
+export default Applicants;

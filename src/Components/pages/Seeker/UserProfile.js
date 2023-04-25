@@ -4,7 +4,6 @@ import React, {
   useEffect,
   useCallback,
   useRef,
-  //useLayoutEffect
 } from 'react';
 import AppContext from '../../../store/app-context';
 import { useNavigate } from 'react-router-dom';
@@ -49,9 +48,15 @@ const UserProfile = props => {
   const apiErrorInfo = useRef(null);
   const [gitUserNameTouched, setGitUserNameTouched] = useState(false);
   const { isLoading, error, sendRequest: fetchRepos } = useHttp();
+
   useEffect(() => {
     if (appCtx.userProfile !== 'seeker') {
-      navigate('/');
+      const userProfileLocal = localStorage.getItem("userProfile");
+      if(!userProfileLocal || userProfileLocal !== 'seeker'){
+        navigate('/');
+      }else{
+        appCtx.onLogin(userProfileLocal);
+      }
     }
   }, [appCtx, navigate]);
 

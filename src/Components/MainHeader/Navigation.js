@@ -26,7 +26,7 @@ const Navigation = props => {
               className={({ isActive }) => (isActive ? 'active' : undefined)}
               end
             >
-              Jobs
+              Posted Jobs
             </NavLink>
           </li>
         )}

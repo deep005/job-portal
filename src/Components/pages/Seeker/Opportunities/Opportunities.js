@@ -32,10 +32,16 @@ const Opportunities = (props) => {
   }, []);
 
   useEffect(() => {
-    if (appCtx.userProfile !== "seeker") {
-      navigate("/");
+    if (appCtx.userProfile !== 'seeker') {
+      const userProfileLocal = localStorage.getItem("userProfile");
+      if(!userProfileLocal || userProfileLocal !== 'seeker'){
+        navigate('/');
+      }else{
+        appCtx.onLogin(userProfileLocal);
+      }
     }
   }, [appCtx, navigate]);
+
 
   const fetchMoreData = useCallback(() => {
     if (window.Worker !== "undefined") {

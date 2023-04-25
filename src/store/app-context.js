@@ -14,6 +14,7 @@ export const AppContextProvider = (props) => {
   }
   const logoutHandler = () => {
     setUserProfile('');
+    localStorage.removeItem("userProfile");
   }
     return <AppContext.Provider value={{
         userProfile: userProfile,
