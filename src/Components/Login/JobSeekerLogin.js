@@ -44,7 +44,6 @@ const JobSeekerLogin = (props) => {
 
 
   const onValuesChange = (values) => {
-    console.log("Failed:", values);
 
     values.username
       ? setUserName(values.username || "")

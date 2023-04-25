@@ -11,15 +11,17 @@ import applicantsData from "../../../Data/Applicants";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import JobPostingsListListItem from "../../UI/JobPostingsListListItem";
-import { Divider, List, Skeleton, Spin, Modal, Collapse } from "antd";
+import { Divider, List, Skeleton, Spin, Modal, Collapse, notification} from "antd";
 import ApplicantListItem from "../../UI/ApplicantListItem";
 import AddJobCard from "./AddJobCard";
-import JobForm from "./JobForm"
+import JobForm from "./JobForm";
+
 
 const { Panel } = Collapse;
 
 
 const Jobs = (props) => {
+  const [api, contextHolder] = notification.useNotification();
   const appCtx = useContext(AppContext);
   const navigate = useNavigate();
   const [postedJobs, setPostedJobs] = useState([]);
@@ -33,11 +35,20 @@ const Jobs = (props) => {
   const [jobCreation, setJobCreation] = useState(false);
   const [newJob, setNewJob] = useState({});
 
+  const openNotificationWithIcon = useCallback((type) => {
+    api[type]({
+      message: "Success",
+      duration: 3,
+      description: "New job created!",
+    });
+  }, [api]); 
+
   const jobsPostedWorker = useMemo(() => {
     return new Worker(
       new URL("../../../Workers/employerJobsWorker.js", import.meta.url)
     );
   }, []);
+  
 
   useEffect(()=>{
     if(newJob.company){
@@ -46,8 +57,9 @@ const Jobs = (props) => {
         postedJobsCopy.unshift(newJob);
         return postedJobsCopy
       })
+      openNotificationWithIcon("success")
     }
-  },[newJob]);
+  },[newJob, openNotificationWithIcon]);
 
   useEffect(() => {
     if (jobId !== "") {
@@ -112,7 +124,6 @@ const Jobs = (props) => {
   }, [jobsPostedWorker, fetchMorePostedJobsData]);
 
   const onViewApplicantsHandler = (postedJob) => {
-    console.log("setting id", postedJob.jobId);
     setJobId(postedJob.jobId);
     setIsLoading(true);
   };
@@ -120,9 +131,17 @@ const Jobs = (props) => {
     setJobId("");
     setApplicants([]);
   };
+  const jobTitleStyle = {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingBottom: "20px",
+    marginTop: 0
+  };
 
   return (
     <>
+    {contextHolder}
     <AddJobCard onJobCreation={setJobCreation}/>
     <div
           id="scrollableDiv"
@@ -192,6 +211,7 @@ const Jobs = (props) => {
       </Modal>
       <Modal
       open={jobCreation}
+      title={<h3 style={jobTitleStyle}>Enter Job Details</h3>}
       centered
       footer={null}
       style={{ minWidth: 800}}

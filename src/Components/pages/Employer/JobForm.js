@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./JobForm.scss";
 
@@ -20,6 +20,8 @@ const JobForm = (props) => {
   const [formError, setFormError] = useState(true);
   const [form] = Form.useForm();
   const [fileSizeError, setFileSizeError] = useState(false);
+  const uploadRef = useRef(null);
+  const [fileList, setFileList] = useState([])
   const uploadProps = useMemo(() => {
     return {
       name: "file",
@@ -31,17 +33,17 @@ const JobForm = (props) => {
       beforeUpload(info) {
         setFileSizeError(false);
         if (info.size > 16384) {
-          console.log("$$$$$", info.size);
           setFileSizeError(true);
           return Upload.LIST_IGNORE;
         }
       },
       onChange(info) {
+        setFileList(info.fileList);
         if (info.file.status !== "uploading") {
-          console.log(info.file, info.fileList);
         }
         if (info.file.status === "done") {
           message.success(`${info.file.name} file uploaded successfully`);
+          
         } else if (info.file.status === "error") {
           message.error(`${info.file.name} file upload failed.`);
         }
@@ -92,6 +94,7 @@ const JobForm = (props) => {
         jobDescription: undefined
       };
       form.setFieldsValue(newJobObject);
+      setFileList([]);
       setFormError(true);
   }
   
@@ -158,7 +161,7 @@ const JobForm = (props) => {
         <Select style={{ width: "50%" }} allowClear options={yoeOptions} />
       </Form.Item>
       <Form.Item name="jobDescription" label="Job Description Document">
-        <Upload {...uploadProps}>
+        <Upload {...uploadProps} fileList={fileList}>
           <Button icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
       </Form.Item>

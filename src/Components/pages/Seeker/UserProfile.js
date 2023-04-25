@@ -114,7 +114,6 @@ const UserProfile = (props) => {
       values.lastName = "";
     }
     setFirstName(values.firstName);
-    console.log("Success:", JSON.parse(JSON.stringify(values)));
     window.localStorage.setItem("seekerData", JSON.stringify(values));
     setShowSubmitted(true);
   };

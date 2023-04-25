@@ -9,7 +9,7 @@ const JobPostingsListListItem = (props) => {
       key={postedJob.id}
       actions={[
         <Button type="primary" disabled={disabled} onClick={onClickHandler}>
-          {disabled=== "primary" ?`View ${postedJob.applicants} ${postedJob.applicants >1 ? 'applicants' : 'applicant'}`:"No Applicants"}
+          {!disabled ?`View ${postedJob.applicants} ${postedJob.applicants >1 ? 'applicants' : 'applicant'}`:"No Applicants"}
         </Button>,
       ]}
     >

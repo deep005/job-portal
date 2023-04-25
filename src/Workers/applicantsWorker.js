@@ -9,14 +9,8 @@ onmessage = (event) => {
             resApplicants = Object.assign([], applicantObj.applicants);
         }
   })
-  console.log("Inside worker", resApplicants);
   postMessage({
     resApplicants: resApplicants,
   });
-  // setTimeout(() => {
-  //   // eslint-disable-next-line no-restricted-globals
-  //   postMessage({
-  //     resApplicants: resApplicants,
-  //   });
-  // }, 2000);
+
 };
