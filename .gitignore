@@ -11,6 +11,9 @@
 # production
 /build
 
+#keys
+/src/Constants/UserProfileConstants.js
+
 # misc
 .DS_Store
 .env.local
