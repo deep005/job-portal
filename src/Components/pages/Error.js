@@ -7,7 +7,7 @@ const Error = () => {
       <main>
         <Result
         style={{
-          padding: 0
+          margin: '3rem'
         }}
           status="404"
           title="Aw, Snap!"

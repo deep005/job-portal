@@ -119,9 +119,6 @@ const UserProfile = (props) => {
     setShowSubmitted(true);
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
   const onValuesChange = (changedValues, allValues) => {
     const skills = !Array.isArray(allValues.skills)
       ? undefined
@@ -178,7 +175,6 @@ const UserProfile = (props) => {
           wrapperCol={{ offset: 1, span: 14 }}
           style={{ maxWidth: 600, paddingTop: 30 }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           onValuesChange={onValuesChange}
           autoComplete="off"
           form={form}

@@ -3,12 +3,13 @@ import { List, Button } from "antd";
 const JobPostingsListListItem = (props) => {
   const { postedJob, onClickHandler } = props;
   const tags = postedJob.tags.join(", ");
+  const disabled = (postedJob.applicants > 0)? false :true;
   return (
     <List.Item
       key={postedJob.id}
       actions={[
-        <Button type="primary" onClick={onClickHandler}>
-          {`View ${postedJob.applicants} ${postedJob.applicants >1 ? 'applicants' : 'applicant'}`}
+        <Button type="primary" disabled={disabled} onClick={onClickHandler}>
+          {disabled=== "primary" ?`View ${postedJob.applicants} ${postedJob.applicants >1 ? 'applicants' : 'applicant'}`:"No Applicants"}
         </Button>,
       ]}
     >

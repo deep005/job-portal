@@ -14,6 +14,7 @@ import JobPostingsListListItem from "../../UI/JobPostingsListListItem";
 import { Divider, List, Skeleton, Spin, Modal, Collapse } from "antd";
 import ApplicantListItem from "../../UI/ApplicantListItem";
 import AddJobCard from "./AddJobCard";
+import JobForm from "./JobForm"
 
 const { Panel } = Collapse;
 
@@ -29,7 +30,8 @@ const Jobs = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const nextScroll = useRef(true);
   const timerRef = useRef(null);
-  const [jobCreation, setJobCreation] = useState(false)
+  const [jobCreation, setJobCreation] = useState(false);
+  const [newJob, setNewJob] = useState({});
 
   const jobsPostedWorker = useMemo(() => {
     return new Worker(
@@ -37,6 +39,15 @@ const Jobs = (props) => {
     );
   }, []);
 
+  useEffect(()=>{
+    if(newJob.company){
+      setPostedJobs(prevState => {
+        const postedJobsCopy = [...prevState];
+        postedJobsCopy.unshift(newJob);
+        return postedJobsCopy
+      })
+    }
+  },[newJob]);
 
   useEffect(() => {
     if (jobId !== "") {
@@ -178,6 +189,17 @@ const Jobs = (props) => {
             </Collapse>
           )}
         />
+      </Modal>
+      <Modal
+      open={jobCreation}
+      centered
+      footer={null}
+      style={{ minWidth: 800}}
+      onCancel={()=>{
+        setJobCreation(false)
+      }}
+      >
+        <JobForm onNewJob={setNewJob} onJobCreation={setJobCreation}/>
       </Modal>
     </>
   );
