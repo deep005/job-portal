@@ -145,9 +145,10 @@ const Jobs = (props) => {
           dataSource={applicants}
           renderItem={(applicant) => (
             <Collapse style={{
-              fontSize : 16
+              fontSize : 16,
+              marginBottom: 10
             }}>
-              <Panel header={applicant.firstName}>
+              <Panel header={applicant.firstName} >
                 <ApplicantListItem
                   currPosition={applicant.currPosition}
                   gender={applicant.gender}

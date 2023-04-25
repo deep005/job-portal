@@ -1,14 +1,32 @@
-import React from 'react';
-import JobSeekerLogin from './JobSeekerLogin';
-import EmployerLogin from './EmployerLogin';
-import './Login.scss';
+import React from "react";
+import JobSeekerLogin from "./JobSeekerLogin";
+import EmployerLogin from "./EmployerLogin";
+import "./Login.scss";
+import { notification } from "antd";
 
 const Login = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotificationWithIcon = (type) => {
+    api[type]({
+      message: "Error",
+      duration: 0,
+      description: "Please enter a valid username and password!",
+    });
+  };
+
   return (
-    <div className="login-container">
-      <JobSeekerLogin />
-      <EmployerLogin />
-    </div>
+    <>
+      {contextHolder}
+      <div className="login-container">
+        <JobSeekerLogin
+          onLoginFail={openNotificationWithIcon.bind(null, "error")}
+        />
+        <EmployerLogin
+          onLoginFail={openNotificationWithIcon.bind(null, "error")}
+        />
+      </div>
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
-import MainHeader from '../MainHeader/MainHeader';
+import MainHeader from "../MainHeader/MainHeader";
+import { Result } from "antd";
 const Error = () => {
   return (
     <>
       <MainHeader />
       <main>
-        <h1>An error occured!</h1>
-        <p>Could Not find this page!</p>
+        <Result
+        style={{
+          padding: 0
+        }}
+          status="404"
+          title="Aw, Snap!"
+          subTitle="Sorry, the page you visited does not exist."
+        />
       </main>
     </>
   );
