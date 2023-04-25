@@ -1,4 +1,4 @@
-import React, {useState, useContext } from 'react';
+import React, {useState, useContext, useEffect } from 'react';
 import AppContext from '../../store/app-context';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Card } from 'antd';
@@ -7,13 +7,25 @@ import { Button, Form, Input, Card } from 'antd';
 const EmployerLogin = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState(''); 
-    const ctx = useContext(AppContext);
+    const appCtx = useContext(AppContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (appCtx.userProfile !== 'employer') {
+        const userProfileLocal = localStorage.getItem("userProfile");
+        if(userProfileLocal && userProfileLocal === 'employer'){
+          navigate('/jobs');
+        }
+      }
+      if(appCtx.userProfile === 'employer'){
+        navigate('/jobs');
+      }
+    }, [appCtx, navigate]);
 
     const onFinish = (values) => {
         console.log('Success:', values);
         localStorage.setItem('userProfile', 'employer');
-        ctx.onLogin('employer');
+        appCtx.onLogin('employer');
         navigate('/jobs');
       };
       

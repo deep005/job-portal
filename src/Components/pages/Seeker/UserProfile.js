@@ -24,6 +24,7 @@ import UserProfileConstants from '../../../Constants/UserProfileConstants';
 import { debounce } from '../../../Utils/PerformanceUtils';
 import { AuthToken } from '../../../Constants/AppConstants';
 import useHttp from '../../../Hooks/useHttp';
+import { generateGithubRepoUrl } from "../../../Utils/AppUtils";
 import './UserProfile.scss';
 
 const {
@@ -89,7 +90,8 @@ const UserProfile = props => {
   const fetchMoreData = useCallback(() => {
     if (gitUserName !== '' && gitUserName.trim() !== '') {
       const resquestConfig = {
-        url: `https://api.github.com/users/${gitUserName}/repos?per_page=${pageSize.current}&&page=${currentPage.current}`,
+        url: generateGithubRepoUrl(gitUserName, pageSize.current, currentPage.current),
+        //url: `https://api.github.com/users/${gitUserName}/repos?per_page=${pageSize.current}&&page=${currentPage.current}`,
         headers: {
           Authorization: `Bearer ${AuthToken}`,
         },
