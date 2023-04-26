@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./JobForm.scss";
 
@@ -20,7 +20,6 @@ const JobForm = (props) => {
   const [formError, setFormError] = useState(true);
   const [form] = Form.useForm();
   const [fileSizeError, setFileSizeError] = useState(false);
-  const uploadRef = useRef(null);
   const [fileList, setFileList] = useState([])
   const uploadProps = useMemo(() => {
     return {

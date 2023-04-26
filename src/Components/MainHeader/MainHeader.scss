@@ -13,5 +13,8 @@
     font-family: 'Roboto', sans-serif;
     color: white;
     box-shadow: -2px 5px 5px 0px rgba(36,27,36,1);
+    @media only screen and (max-width: 900px) {
+        padding: 0 0.5rem;
+    }
 }
   

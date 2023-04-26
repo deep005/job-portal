@@ -31,13 +31,7 @@ const skills = [
     { value: 'React', label: 'React' },
     { value: 'PHP', label: 'PHP' },
     { value: 'ROR', label: 'ROR' },
-    { value: 'JAVA', label: 'JAVA' },
-    { value: 'Node', label: 'Node' },
-    { value: 'Kotlin', label: 'Kotlin' },
-    {value: 'Accessibility', label: 'Accessibility'},
-    {value: 'microservices', label: 'microservices'},
-    {value: 'IOS', label: 'IOS'}
-
+    { value: 'JAVA', label: 'JAVA' }
 ];
 
 const minSalaryOptions = [

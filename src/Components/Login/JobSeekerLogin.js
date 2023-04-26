@@ -51,6 +51,7 @@ const JobSeekerLogin = (props) => {
   };
 
   return (
+    <div className="seeker-form">
     <Card
       title="Job Seeker"
       bordered={false}
@@ -58,7 +59,6 @@ const JobSeekerLogin = (props) => {
         width: 400,
         height: 400,
         boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)",
-        marginRight: "5rem",
       }}
     >
       <Form
@@ -112,6 +112,7 @@ const JobSeekerLogin = (props) => {
         </Form.Item>
       </Form>
     </Card>
+    </div>
   );
 };
 

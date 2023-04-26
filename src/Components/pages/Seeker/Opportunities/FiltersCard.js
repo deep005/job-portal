@@ -24,10 +24,29 @@ const FiltersCard = (props) => {
       }}
     >
       <label
+        htmlFor="skills"
+        style={{
+          marginRight: "10px",
+          fontSize: "16px",
+        }}
+      >
+        Skills:
+      </label>
+      <Select
+        id="skills"
+        style={{
+          minWidth: "270px",
+          marginRight: "20px",
+        }}
+        options={skillsOptions}
+        mode="multiple"
+        onChange={onSkillsChange}
+      ></Select>
+      <label
         htmlFor="salary"
         style={{
           marginRight: "10px",
-          fontSize: "16px"
+          fontSize: "16px",
         }}
       >
         Minimum salary per hour:
@@ -36,31 +55,10 @@ const FiltersCard = (props) => {
         id="salary"
         allowClear
         style={{
-          marginRight: "20px",
-          minWidth: "200px",
+          minWidth: "100px",
         }}
         options={minSalaryOptions}
         onChange={onSalaryChange}
-      ></Select>
-
-      <label
-        htmlFor="skills"
-        style={{
-          marginRight: "10px",
-          fontSize: "16px"
-        }}
-      >
-        Skills:
-      </label>
-      <Select
-        id="skills"
-        allowClear
-        style={{
-          minWidth: "400px",
-        }}
-        options={skillsOptions}
-        mode="multiple"
-        onChange={onSkillsChange}
       ></Select>
     </Card>
   );

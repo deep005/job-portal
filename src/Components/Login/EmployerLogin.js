@@ -49,6 +49,7 @@ const EmployerLogin = (props) => {
   };
 
   return (
+    <div className="employer-form">
     <Card
       title="Employer"
       bordered={false}
@@ -109,6 +110,7 @@ const EmployerLogin = (props) => {
         </Form.Item>
       </Form>
     </Card>
+    </div>
   );
 };
 
