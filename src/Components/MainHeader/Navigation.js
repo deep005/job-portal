@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import AppContext from '../../store/app-context';
 import './Navigation.scss';
 
 const Navigation = props => {
   const ctx = useContext(AppContext);
-
+  useEffect(()=>{
+    console.log(ctx);
+  }, [ctx])
   return (
     <nav className="nav">
       <ul>
         {ctx.userProfile === 'seeker' ? (
-          <li>
+          <li key="profile1">
             <NavLink
               to="/profile"
               className={({ isActive }) => (isActive ? 'active' : undefined)}
@@ -19,19 +21,9 @@ const Navigation = props => {
               Profile
             </NavLink>
           </li>
-        ) : (
-          <li>
-            <NavLink
-              to="/jobs"
-              className={({ isActive }) => (isActive ? 'active' : undefined)}
-              end
-            >
-              Posted Jobs
-            </NavLink>
-          </li>
-        )}
-        {ctx.userProfile === 'seeker' ? (
-          <li>
+        ) : null}
+        {ctx.userProfile === 'seeker' && ctx.userDataFilled? (
+          <li key="opportunities">
             <NavLink
               to="/opportunities"
               className={({ isActive }) => (isActive ? 'active' : undefined)}
@@ -41,6 +33,18 @@ const Navigation = props => {
             </NavLink>
           </li>
         ) : null}
+        {ctx.userProfile !== 'seeker' ? (
+          <li key="jobs">
+            <NavLink
+              to="/jobs"
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+              end
+            >
+              Posted Jobs
+            </NavLink>
+          </li>
+        ) : null}
+        
       </ul>
       <ul>
         <li>

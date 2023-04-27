@@ -214,7 +214,7 @@ const Jobs = (props) => {
       title={<h3 style={jobTitleStyle}>Enter Job Details</h3>}
       centered
       footer={null}
-      style={{ minWidth: 800}}
+       style={{ minWidth: "50vw"}}
       onCancel={()=>{
         setJobCreation(false)
       }}

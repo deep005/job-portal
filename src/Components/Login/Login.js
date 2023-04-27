@@ -10,7 +10,7 @@ const Login = () => {
   const openNotificationWithIcon = (type) => {
     api[type]({
       message: "Error",
-      duration: 0,
+      duration: 5,
       description: "Please enter a valid username and password!",
     });
   };

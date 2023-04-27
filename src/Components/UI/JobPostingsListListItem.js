@@ -16,6 +16,9 @@ const JobPostingsListListItem = (props) => {
       <List.Item.Meta
         title={<h2>{postedJob.company}</h2>}
         description={postedJob.designation}
+        style={{
+          width: "50%",
+        }}
       />
       <div
         style={{

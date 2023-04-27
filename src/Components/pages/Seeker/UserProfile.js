@@ -52,7 +52,29 @@ const UserProfile = (props) => {
   const { isLoading, error, sendRequest: fetchRepos } = useHttp();
   const [showSubmitted, setShowSubmitted] = useState(false);
   const [form] = Form.useForm();
-  const [firstName, setFirstName] = useState('');
+  const [firstName, setFirstName] = useState("");
+
+  useEffect(() => {
+    const seekerData = JSON.parse(window.localStorage.getItem("seekerData"));
+    if (seekerData) {
+      const newJobObject = {
+        contactNumber: seekerData.contactNumber,
+        education: seekerData.education,
+        firstName: seekerData.firstName,
+        gender: seekerData.gender,
+        githubUserName: seekerData.githubUserName,
+        lastName: seekerData.lastName ? seekerData.lastName : "",
+        location: seekerData.location,
+        skills: seekerData.skills,
+        yoe: seekerData.yoe,
+      };
+      form.setFieldsValue(newJobObject);
+      setGitUserName(seekerData.githubUserName);
+      appCtx.onSetUserDataFilled(true);
+      setFormError(false);
+    }
+    console.log("******", seekerData);
+  }, [form, appCtx]);
 
   useEffect(() => {
     if (appCtx.userProfile !== "seeker") {
@@ -116,6 +138,7 @@ const UserProfile = (props) => {
     setFirstName(values.firstName);
     window.localStorage.setItem("seekerData", JSON.stringify(values));
     setShowSubmitted(true);
+    appCtx.onSetUserDataFilled(true);
   };
 
   const onValuesChange = (changedValues, allValues) => {
@@ -153,9 +176,9 @@ const UserProfile = (props) => {
     nextScroll.current = true;
   };
 
-  const onCancelHandler = () =>{
+  const onCancelHandler = () => {
     setShowSubmitted(false);
-  }
+  };
 
   const debouncedOnChangeHandler = debounce(onChangeHandler, 700);
 
@@ -164,7 +187,11 @@ const UserProfile = (props) => {
       <Card
         title="Enter Your Details"
         bordered={false}
-        style={{ width: 700, boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)", marginTop: "5rem" }}
+        style={{
+          width: 700,
+          boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)",
+          marginTop: "5rem",
+        }}
         headStyle={{ textAlign: "center", fontSize: "2.5rem" }}
         bodyStyle={{ fontSize: "1.5rem" }}
       >
@@ -375,9 +402,9 @@ const UserProfile = (props) => {
         onCancel={onCancelHandler}
       >
         <Result
-        style={{
-          padding: 0
-        }}
+          style={{
+            padding: 0,
+          }}
           status="success"
           title="Success!"
           subTitle={`${firstName}, you have successfully submitted your details.`}
