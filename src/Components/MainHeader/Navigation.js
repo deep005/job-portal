@@ -1,13 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import AppContext from '../../store/app-context';
 import './Navigation.scss';
 
 const Navigation = props => {
   const ctx = useContext(AppContext);
-  useEffect(()=>{
-    console.log(ctx);
-  }, [ctx])
   return (
     <nav className="nav">
       <ul>

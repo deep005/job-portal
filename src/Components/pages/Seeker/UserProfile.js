@@ -73,7 +73,6 @@ const UserProfile = (props) => {
       appCtx.onSetUserDataFilled(true);
       setFormError(false);
     }
-    console.log("******", seekerData);
   }, [form, appCtx]);
 
   useEffect(() => {
