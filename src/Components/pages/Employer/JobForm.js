@@ -12,11 +12,12 @@ import {
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { yoeOptions, tags } from "../../../Constants/JobsConstants";
+import { generateFileUploadUrl } from "../../../Utils/AppUtils";
 
 const { TextArea } = Input;
 
 const JobForm = (props) => {
-  const {onNewJob, onJobCreation} = props;
+  const {onNewJob, onOpenJobCreationModal} = props;
   const [formError, setFormError] = useState(true);
   const [form] = Form.useForm();
   const [fileSizeError, setFileSizeError] = useState(false);
@@ -24,7 +25,7 @@ const JobForm = (props) => {
   const uploadProps = useMemo(() => {
     return {
       name: "file",
-      action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
+      action: generateFileUploadUrl(),
       headers: {
         authorization: "authorization-text",
       },
@@ -81,7 +82,7 @@ const JobForm = (props) => {
         jobId: uuidv4(),
         applicants: 0
     })
-    onJobCreation(false);
+    onOpenJobCreationModal(false);
     const newJobObject = {
         tags: [],
         contactInfo: undefined,
@@ -169,7 +170,7 @@ const JobForm = (props) => {
           wrapperCol={{ offset: 7, span: 10 }}
           style={{ marginTop: "-30px" }}
         >
-          <p className="error-message">
+          <p className="error-message" data-testid="file-error">
             {"Please upload a file of less than 16KB size!"}
           </p>
         </Form.Item>

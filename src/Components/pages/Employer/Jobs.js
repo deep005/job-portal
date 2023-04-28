@@ -32,7 +32,7 @@ const Jobs = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const nextScroll = useRef(true);
   const timerRef = useRef(null);
-  const [jobCreation, setJobCreation] = useState(false);
+  const [openJobCreationModal, setOpenJobCreationModal] = useState(false);
   const [newJob, setNewJob] = useState({});
 
   const openNotificationWithIcon = useCallback((type) => {
@@ -142,7 +142,7 @@ const Jobs = (props) => {
   return (
     <>
     {contextHolder}
-    <AddJobCard onJobCreation={setJobCreation}/>
+    <AddJobCard onOpenJobCreationModal={setOpenJobCreationModal}/>
     <div
           id="scrollableDiv"
           style={{
@@ -210,16 +210,16 @@ const Jobs = (props) => {
         />
       </Modal>
       <Modal
-      open={jobCreation}
+      open={openJobCreationModal}
       title={<h3 style={jobTitleStyle}>Enter Job Details</h3>}
       centered
       footer={null}
        style={{ minWidth: "50vw"}}
       onCancel={()=>{
-        setJobCreation(false)
+        setOpenJobCreationModal(false)
       }}
       >
-        <JobForm onNewJob={setNewJob} onJobCreation={setJobCreation}/>
+        <JobForm onNewJob={setNewJob} onOpenJobCreationModal={setOpenJobCreationModal}/>
       </Modal>
     </>
   );
