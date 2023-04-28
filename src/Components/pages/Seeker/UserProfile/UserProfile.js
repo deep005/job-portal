@@ -118,7 +118,7 @@ const UserProfile = (props) => {
           }}
           status="success"
           title="Success!"
-          subTitle={`${firstName}, you have successfully submitted your details.`}
+          subTitle={`Congratulations! ${firstName.toUpperCase()}, you have successfully submitted your details.`}
         />
       </Modal>
     </>
