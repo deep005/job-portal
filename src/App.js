@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Login from './Components/Login/Login';
 import Jobs from './Components/pages/Employer/Jobs';
 import Opportunities from './Components/pages/Seeker/Opportunities/Opportunities';
-import UserProfile from './Components/pages/Seeker/UserProfile';
+import UserProfile from './Components/pages/Seeker/UserProfile/UserProfile';
 import RootLayout from './Components/pages/Root';
 import Error from './Components/pages/Error';
 import './App.scss';
