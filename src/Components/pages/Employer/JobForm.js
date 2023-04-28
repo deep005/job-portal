@@ -181,7 +181,7 @@ const JobForm = (props) => {
         rules={[
           {
             required: true,
-            message: "Please enter the POc for this position!",
+            message: "Please enter the POC for this position!",
           },
         ]}
       >

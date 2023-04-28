@@ -70,4 +70,29 @@ describe('JobForm', () => {
     fireEvent.change(screen.getByLabelText("Company Name"), { target: { value: "" } });
     expect(await screen.findByText('Please enter the Company Name!')).toBeInTheDocument();
   });
+
+  it("validation error message should be displayed when entering invalid designation", async () => {
+    const onNewJobMock = jest.fn();
+    const onOpenJobCreationModal = jest.fn();
+    render(<JobForm onNewJob={onNewJobMock} onOpenJobCreationModal={onOpenJobCreationModal} />);
+    fireEvent.change(screen.getByLabelText("Designation"), { target: { value: "Test Designation" } });
+    fireEvent.change(screen.getByLabelText("Designation"), { target: { value: "" } });
+    expect(await screen.findByText('Please enter the designation!')).toBeInTheDocument();
+  });
+  it("validation error message should be displayed when entering invalid requirements", async () => {
+    const onNewJobMock = jest.fn();
+    const onOpenJobCreationModal = jest.fn();
+    render(<JobForm onNewJob={onNewJobMock} onOpenJobCreationModal={onOpenJobCreationModal} />);
+    fireEvent.change(screen.getByLabelText("Requirements"), { target: { value: "Test Requiemets" } });
+    fireEvent.change(screen.getByLabelText("Requirements"), { target: { value: "" } });
+    expect(await screen.findByText('Please enter the requirements!')).toBeInTheDocument();
+  });
+  it("validation error message should be displayed when entering invalid Point of Contact", async () => {
+    const onNewJobMock = jest.fn();
+    const onOpenJobCreationModal = jest.fn();
+    render(<JobForm onNewJob={onNewJobMock} onOpenJobCreationModal={onOpenJobCreationModal} />);
+    fireEvent.change(screen.getByLabelText("Point of Contact"), { target: { value: "Test POC" } });
+    fireEvent.change(screen.getByLabelText("Point of Contact"), { target: { value: "" } });
+    expect(await screen.findByText('Please enter the POC for this position!')).toBeInTheDocument();
+  });
 });
