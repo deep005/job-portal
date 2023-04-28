@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AppContext from '../../store/app-context';
 import './Navigation.scss';
 
 const Navigation = props => {
   const ctx = useContext(AppContext);
+  const [seeker, setSeekerData] = useState(null);
+  useEffect(()=>{
+    setSeekerData(JSON.parse(window.localStorage.getItem("seekerData")));
+  }, [ctx])
   return (
     <nav className="nav">
       <ul>
@@ -19,7 +23,7 @@ const Navigation = props => {
             </NavLink>
           </li>
         ) : null}
-        {ctx.userProfile === 'seeker' && ctx.userDataFilled? (
+        {ctx.userProfile === 'seeker' && seeker && seeker.firstName ? (
           <li key="opportunities">
             <NavLink
               to="/opportunities"
