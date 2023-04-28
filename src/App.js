@@ -7,6 +7,7 @@ import Opportunities from './Components/pages/Seeker/Opportunities/Opportunities
 import UserProfile from './Components/pages/Seeker/UserProfile';
 import RootLayout from './Components/pages/Root';
 import Error from './Components/pages/Error';
+import './App.scss';
 
 const router = createBrowserRouter([
   { path: '/', element: <RootLayout />, errorElement: <Error />,

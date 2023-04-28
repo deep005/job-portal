@@ -1,6 +1,6 @@
 import { List } from "antd";
 
-const JobPostingsListListItem = (props) => {
+const ApplicantListItem = (props) => {
   const { currPosition, gender, experience, contact, education, skills, location } = props;
   const skillsModified = skills.join(", ");
   return (
@@ -26,4 +26,4 @@ const JobPostingsListListItem = (props) => {
   );
 };
 
-export default JobPostingsListListItem;
+export default ApplicantListItem;

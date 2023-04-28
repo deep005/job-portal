@@ -10,23 +10,28 @@ const OpportunityListItem = (props) => {
           type="primary"
           disabled={opprotunity.applied ? opprotunity.applied : false}
           onClick={onClickHandler}
+          style={{minWidth: "7rem"}}
         >
           Apply
-        </Button>,
+        </Button>
       ]}
     >
       <List.Item.Meta
-        title={<h2>{opprotunity.companyName}</h2>}
+        title={<div style={{fontSize: "1.5rem"}}>{opprotunity.companyName}</div>}
         description={
           opprotunity.position ? opprotunity.position : "Data Scientist"
         }
+        style={{
+          width: "55%",
+          paddingRight: "2%"
+        }}
       />
       <div
         style={{
           display: "flex",
           justifyContent: "flex-start",
           fontSize: "18px",
-          width: "50%",
+          width: "45%",
         }}
       >
         <div>

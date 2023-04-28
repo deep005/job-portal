@@ -8,16 +8,17 @@ const JobPostingsListListItem = (props) => {
     <List.Item
       key={postedJob.id}
       actions={[
-        <Button type="primary" disabled={disabled} onClick={onClickHandler}>
+        <Button type="primary" disabled={disabled} onClick={onClickHandler} style={{minWidth: "9rem"}}>
           {!disabled ?`View ${postedJob.applicants} ${postedJob.applicants >1 ? 'applicants' : 'applicant'}`:"No Applicants"}
         </Button>,
       ]}
     >
       <List.Item.Meta
-        title={<h2>{postedJob.company}</h2>}
+        title={<div style={{fontSize:"1.5rem"}}>{postedJob.company}</div>}
         description={postedJob.designation}
         style={{
-          width: "50%",
+          width: "55%",
+          paddingRight: "2%"
         }}
       />
       <div
@@ -25,7 +26,7 @@ const JobPostingsListListItem = (props) => {
           display: "flex",
           justifyContent: "flex-start",
           fontSize: "18px",
-          width: "50%",
+          width: "45%",
         }}
       >
         <div>
