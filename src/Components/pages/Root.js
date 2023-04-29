@@ -1,12 +1,18 @@
-import { Outlet } from 'react-router-dom';
-import MainHeader from '../MainHeader/MainHeader';
+"use client";
+import { Outlet } from "react-router-dom";
+import MainHeader from "../MainHeader/MainHeader";
+import { ErrorBoundary } from "react-error-boundary";
+import Fallback from "./AppErrorFallback";
+
 const RootLayout = () => {
   return (
     <>
-      <MainHeader />
-      <main>
-        <Outlet/>
-      </main>
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <MainHeader />
+        <main>
+          <Outlet />
+        </main>
+      </ErrorBoundary>
     </>
   );
 };
