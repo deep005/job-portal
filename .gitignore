@@ -12,7 +12,7 @@
 /build
 
 #keys
-/src/Constants/UserProfileConstants.js
+/src/Constants/AppConstants.js
 
 # misc
 .DS_Store

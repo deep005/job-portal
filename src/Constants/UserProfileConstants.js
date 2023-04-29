@@ -51,5 +51,6 @@ const userProfileConstants = {
     minSalaryOptions: minSalaryOptions
 }
 
+
 export default userProfileConstants;
 

@@ -8,6 +8,7 @@ import UserProfile from './Components/pages/Seeker/UserProfile/UserProfile';
 import RootLayout from './Components/pages/Root';
 import Error from './Components/pages/Error';
 import './App.scss';
+import { AppContextProvider } from "./store/app-context";
 
 const router = createBrowserRouter([
   { path: '/', element: <RootLayout />, errorElement: <Error />,
@@ -25,14 +26,15 @@ const router = createBrowserRouter([
 function App() {
   const { darkAlgorithm } = theme;
     return (
-    
-      <ConfigProvider
-        theme={{
-          algorithm: darkAlgorithm,
-        }}
-      >
-        <RouterProvider router = {router} />
-      </ConfigProvider>
+      <AppContextProvider>
+        <ConfigProvider
+          theme={{
+            algorithm: darkAlgorithm,
+          }}
+        >
+          <RouterProvider router = {router} />
+        </ConfigProvider>
+      </AppContextProvider>
   );
 }
 
