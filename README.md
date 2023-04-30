@@ -1,13 +1,14 @@
-
-
-## Available Scripts
-
 To start the project:
+###
 step 1:you need to take take a pull from this repo.
+###
 step 2: generate a classic github auth token from github developer settings.
-step 3: add the auth token in a new file named AppConstants.js under src/Constants
-step4: run `npm install` in the main directory.
-step: run `npm start` in the main directory.
+###
+step 3: add the auth token in a new file named AppConstants.js under src/Constants.
+###
+step 4: run `npm install` in the main directory.
+###
+step 5: run `npm start` in the main directory.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
