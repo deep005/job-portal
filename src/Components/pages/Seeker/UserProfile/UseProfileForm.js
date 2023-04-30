@@ -46,6 +46,7 @@ const UserProfileForm = (props) => {
   const [form] = Form.useForm();
   const appCtx = useContext(AppContext);
 
+  //useEffect to set the form data
   useEffect(() => {
     const seekerData = JSON.parse(window.localStorage.getItem("seekerData"));
     if (seekerData) {
@@ -69,6 +70,7 @@ const UserProfileForm = (props) => {
     }
   }, [form, appCtx, onSetGitUserName, onSetFormError]);
 
+  //on form submission
   const onFinish = (values) => {
     if (!values.lastName) {
       values.lastName = "";
@@ -79,6 +81,7 @@ const UserProfileForm = (props) => {
     appCtx.onSetUserDataFilled(true);
   };
 
+  //on form value change
   const onValuesChange = (changedValues, allValues) => {
     const skills = !Array.isArray(allValues.skills)
       ? undefined
@@ -108,6 +111,7 @@ const UserProfileForm = (props) => {
     }
   };
 
+  //handler to handle change event of keystroke as the user inputs github profile user name
   const onChangeHandler = (event) => {
     onSetGitUserName(event.target.value);
     onSetUserRepos([]);
@@ -116,6 +120,7 @@ const UserProfileForm = (props) => {
     nextScroll.current = true;
   };
 
+  //debouncing the onChange handler
   const debouncedOnChangeHandler = debounce(onChangeHandler, 700);
 
   return (

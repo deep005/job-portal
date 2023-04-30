@@ -24,10 +24,13 @@ const UserProfile = (props) => {
   const nextScroll = useRef(true);
   const [formError, setFormError] = useState(true);
   const [gitUserNameTouched, setGitUserNameTouched] = useState(false);
+  // useHttp custom hook to make api calls
   const { isLoading, error, sendRequest: fetchRepos } = useHttp();
   const [showSubmitted, setShowSubmitted] = useState(false);
   const [firstName, setFirstName] = useState("");
-
+  
+  
+  //useEffect to check if userprofile exists either on app context or on local storage
   useEffect(() => {
     if (appCtx.userProfile !== "seeker") {
       const userProfileLocal = localStorage.getItem("userProfile");
@@ -39,6 +42,7 @@ const UserProfile = (props) => {
     }
   }, [appCtx, navigate]);
 
+  //transform function passed as a callback to useHttp hook's sendRequest method to transform the response data
   const transformFunc = useCallback((response) => {
     if (response.length === 0) {
       nextScroll.current = false;
@@ -62,6 +66,7 @@ const UserProfile = (props) => {
     });
   }, []);
 
+  // function to fetch the github repositories
   const fetchMoreData = useCallback(() => {
     if (gitUserName !== "" && gitUserName.trim() !== "") {
       const resquestConfig = {
@@ -83,6 +88,7 @@ const UserProfile = (props) => {
     fetchMoreData();
   }, [fetchMoreData]);
 
+  //handler to handle modal close event for success modal
   const onCancelHandler = () => {
     setShowSubmitted(false);
   };

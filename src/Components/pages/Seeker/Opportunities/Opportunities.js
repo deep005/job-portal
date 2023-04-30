@@ -25,12 +25,14 @@ const Opportunities = (props) => {
   const nextScroll = useRef(true);
   const [messageApi, contextHolder] = message.useMessage();
 
+  // creatiing a web worker for opportunities page to fetch opportunities data on a new thread
   const worker = useMemo(() => {
     return new Worker(
       new URL("../../../../Workers/jobListWorker.js", import.meta.url)
     );
   }, []);
 
+  //useEffect to check if userProfile exists either on app context or on local storage
   useEffect(() => {
     if (appCtx.userProfile !== 'seeker') {
       const userProfileLocal = localStorage.getItem("userProfile");
@@ -42,7 +44,7 @@ const Opportunities = (props) => {
     }
   }, [appCtx, navigate]);
 
-
+  // function to fetch the job opportunitites
   const fetchMoreData = useCallback(() => {
     if (window.Worker !== "undefined") {
       const requestObj = {
@@ -67,6 +69,7 @@ const Opportunities = (props) => {
     }
   }, [worker, filterSkills, filterMinSalary]);
 
+  //triggered when a filter is changed
   useEffect(() => {
     if (reRender) {
       currentPage.current = 0;
@@ -76,6 +79,7 @@ const Opportunities = (props) => {
     }
   }, [reRender, fetchMoreData]);
 
+  //useEffect to trigger the initial opportunities fetch call and terminate the worker on component unMount
   useEffect(() => {
     fetchMoreData();
     return () => {
@@ -92,6 +96,8 @@ const Opportunities = (props) => {
       } at ${opportunity.companyName}`
     );
   };
+
+  //triggered on application to a job
   const onApplyHandler = (opportunity) => {
     const opprotunitiesCopy = opprotunities.map((job) => {
       if (job.id !== opportunity.id) {

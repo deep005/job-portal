@@ -44,7 +44,7 @@ const Jobs = (props) => {
   }, [api]); 
 
 
-  // creatiing a web worker for Jobs page
+  // creatiing a web worker for Jobs page to fetch jobs data on a new thread
   const jobsPostedWorker = useMemo(() => {
     return new Worker(
       new URL("../../../Workers/employerJobsWorker.js", import.meta.url)
