@@ -12,6 +12,7 @@ const EmployerLogin = (props) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
+  //useEffect to check if the userProfile is set to employer either in the app context or local storage
   useEffect(() => {
     if (appCtx.userProfile === "employer") {
       navigate("/jobs");
@@ -23,8 +24,9 @@ const EmployerLogin = (props) => {
     }
   }, [appCtx, navigate]);
 
+  //triggered on form submission
   const onClickHandler = () => {
-    const values = {...form.getFieldValue()}
+    const values = { ...form.getFieldValue() };
     const validateStatus = validateLoginDetails(values, "employer");
     if (validateStatus) {
       localStorage.setItem("userProfile", "employer");
@@ -38,10 +40,11 @@ const EmployerLogin = (props) => {
       };
       form.setFieldsValue(loginObj);
       setUserName("");
-      setPassword("")
+      setPassword("");
     }
-  }
-  
+  };
+
+  //triggered on form value change
   const onValuesChange = (values) => {
     values.username
       ? setUserName(values.username || "")
@@ -50,66 +53,66 @@ const EmployerLogin = (props) => {
 
   return (
     <div className="employer-form">
-    <Card
-      title="Employer"
-      bordered={false}
-      style={{
-        width: 400,
-        height: 400,
-        boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)",
-      }}
-    >
-      <Form
-        form={form}
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600, paddingTop: 30 }}
-        onValuesChange={onValuesChange}
-        autoComplete="off"
+      <Card
+        title="Employer"
+        bordered={false}
+        style={{
+          width: 400,
+          height: 400,
+          boxShadow: "0px 2px 5px 0px rgba(56,43,56,1)",
+        }}
       >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: "Please enter your username!" }]}
+        <Form
+          form={form}
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 600, paddingTop: 30 }}
+          onValuesChange={onValuesChange}
+          autoComplete="off"
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: "Please enter your username!" }]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please enter your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please enter your password!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          {userName.length && password.length ? (
-            <Button
-            onClick={onClickHandler}
-              type="primary"
-              htmlType="submit"
-              style={{
-                background: "#33B566",
-                marginTop: 30,
-              }}
-            >
-              Submit
-            </Button>
-          ) : (
-            <Button
-              disabled
-              style={{
-                marginTop: 30,
-              }}
-            >
-              Submit
-            </Button>
-          )}
-        </Form.Item>
-      </Form>
-    </Card>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            {userName.length && password.length ? (
+              <Button
+                onClick={onClickHandler}
+                type="primary"
+                htmlType="submit"
+                style={{
+                  background: "#33B566",
+                  marginTop: 30,
+                }}
+              >
+                Submit
+              </Button>
+            ) : (
+              <Button
+                disabled
+                style={{
+                  marginTop: 30,
+                }}
+              >
+                Submit
+              </Button>
+            )}
+          </Form.Item>
+        </Form>
+      </Card>
     </div>
   );
 };

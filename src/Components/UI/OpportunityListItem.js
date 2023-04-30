@@ -18,9 +18,7 @@ const OpportunityListItem = (props) => {
     >
       <List.Item.Meta
         title={<div style={{fontSize: "1.5rem"}}>{opprotunity.companyName}</div>}
-        description={
-          opprotunity.position ? opprotunity.position : "Data Scientist"
-        }
+        description={opprotunity.position}
         style={{
           width: "55%",
           paddingRight: "2%"
@@ -39,7 +37,7 @@ const OpportunityListItem = (props) => {
           <div>Salary Per Hour: {opprotunity.perHour}</div>
           <div>Job Poster: {opprotunity.jobPoster}</div>
           <div>
-            Contact email: {opprotunity.contactInfo ? opprotunity.contactInfo : "abc@xyz.com"}
+            Contact info: {opprotunity.contactInfo}
           </div>
         </div>
       </div>

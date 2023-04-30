@@ -22,6 +22,8 @@ const JobForm = (props) => {
   const [form] = Form.useForm();
   const [fileSizeError, setFileSizeError] = useState(false);
   const [fileList, setFileList] = useState([])
+
+  //file upload props
   const uploadProps = useMemo(() => {
     return {
       name: "file",
@@ -51,6 +53,7 @@ const JobForm = (props) => {
     };
   }, []);
 
+  //on form value change
   const onValuesChange = (changedValues, allValues) => {
     const tags = !Array.isArray(allValues.tags)
       ? undefined
@@ -75,6 +78,8 @@ const JobForm = (props) => {
       setFormError(true);
     }
   };
+
+  //handler triggered on form submission
   const onClickHandler = () => {
     const values = {...form.getFieldValue()};
     onNewJob({

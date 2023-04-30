@@ -6,9 +6,11 @@ import './Navigation.scss';
 const Navigation = props => {
   const ctx = useContext(AppContext);
   const [seeker, setSeekerData] = useState(null);
+
   useEffect(()=>{
     setSeekerData(JSON.parse(window.localStorage.getItem("seekerData")));
   }, [ctx])
+  
   return (
     <nav className="nav">
       <ul>

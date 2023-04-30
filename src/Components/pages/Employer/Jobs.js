@@ -43,13 +43,15 @@ const Jobs = (props) => {
     });
   }, [api]); 
 
+
+  // creatiing a web worker for Jobs page
   const jobsPostedWorker = useMemo(() => {
     return new Worker(
       new URL("../../../Workers/employerJobsWorker.js", import.meta.url)
     );
   }, []);
   
-
+//useEffect to check when a new job is created
   useEffect(()=>{
     if(newJob.company){
       setPostedJobs(prevState => {
@@ -61,6 +63,7 @@ const Jobs = (props) => {
     }
   },[newJob, openNotificationWithIcon]);
 
+  //useEffect to be triggered on view applicants click
   useEffect(() => {
     if (jobId !== "") {
       let resApplicants = [];
@@ -80,6 +83,8 @@ const Jobs = (props) => {
     }
   }, [jobId]);
 
+
+  //useEffect to check if userprofile exists either on app context or on local storage
   useEffect(() => {
     if (appCtx.userProfile !== 'employer') {
       const userProfileLocal = localStorage.getItem("userProfile");
@@ -91,6 +96,7 @@ const Jobs = (props) => {
     }
   }, [appCtx, navigate]);
 
+  //function to fetch the posted jobs by an employer
   const fetchMorePostedJobsData = useCallback(() => {
     if (window.Worker !== "undefined") {
       const requestObj = {
@@ -114,6 +120,7 @@ const Jobs = (props) => {
     }
   }, [jobsPostedWorker]);
 
+  // terminating the worker in the cleanup function
   useEffect(() => {
     fetchMorePostedJobsData();
     return () => {
@@ -127,6 +134,8 @@ const Jobs = (props) => {
     setJobId(postedJob.jobId);
     setIsLoading(true);
   };
+
+  //handler called on close of applicants modal
   const onCancelHandler = () => {
     setJobId("");
     setApplicants([]);

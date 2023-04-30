@@ -12,6 +12,7 @@ const JobSeekerLogin = (props) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
+  //useEffect to check if the userProfile is set to seeker either in the app context or local storage
   useEffect(() => {
     if (appCtx.userProfile === "seeker") {
       navigate("/profile");
@@ -23,6 +24,7 @@ const JobSeekerLogin = (props) => {
     }
   }, [appCtx, navigate]);
 
+  //triggered on form submission
   const onClickHandler = () => {
     const values = { ...form.getFieldValue() };
     const validateStatus = validateLoginDetails(values, "seeker");
@@ -42,7 +44,7 @@ const JobSeekerLogin = (props) => {
     }
   };
 
-
+  //triggered on form value change
   const onValuesChange = (values) => {
 
     values.username
