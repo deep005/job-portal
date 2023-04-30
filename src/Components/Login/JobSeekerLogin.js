@@ -99,7 +99,7 @@ const JobSeekerLogin = (props) => {
                 marginTop: 30,
               }}
             >
-              Submit
+              Login
             </Button>
           ) : (
             <Button
@@ -108,7 +108,7 @@ const JobSeekerLogin = (props) => {
                 marginTop: 30,
               }}
             >
-              Submit
+              Login
             </Button>
           )}
         </Form.Item>
