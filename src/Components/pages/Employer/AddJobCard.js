@@ -7,14 +7,18 @@ const AddJobCard = (props) => {
     <Card
       style={{
         minWidth: "97.5vw",
-        border: 'none',
+        border: "none",
         display: "flex",
         justifyContent: "flex-end",
-        paddingRight: 20
+        paddingRight: 20,
       }}
     >
-      <Button type="primary" onClick={onOpenJobCreationModal.bind(null,true)}>
-       Post Job
+      <Button
+        type="primary"
+        onClick={onOpenJobCreationModal.bind(null, true)}
+        style={{ background: "#33B566" }}
+      >
+        Post Job
       </Button>
     </Card>
   );

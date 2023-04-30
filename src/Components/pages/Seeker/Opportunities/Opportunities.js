@@ -32,13 +32,6 @@ const Opportunities = (props) => {
   }, []);
 
   useEffect(() => {
-    const seekerData = JSON.parse(window.localStorage.getItem("seekerData"));
-    if (seekerData) {
-      appCtx.onSetUserDataFilled(true);
-    }
-  }, [ appCtx]);
-
-  useEffect(() => {
     if (appCtx.userProfile !== 'seeker') {
       const userProfileLocal = localStorage.getItem("userProfile");
       if(!userProfileLocal || userProfileLocal !== 'seeker'){

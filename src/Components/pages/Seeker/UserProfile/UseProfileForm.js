@@ -62,7 +62,9 @@ const UserProfileForm = (props) => {
       };
       form.setFieldsValue(newJobObject);
       onSetGitUserName(seekerData.githubUserName);
-      appCtx.onSetUserDataFilled(true);
+      if(!appCtx.userDataFilled){
+        appCtx.onSetUserDataFilled(true);
+      }
       onSetFormError(false);
     }
   }, [form, appCtx, onSetGitUserName, onSetFormError]);
