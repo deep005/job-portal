@@ -13,6 +13,8 @@ step 5: run `npm start` in the main directory.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+the login details for both job seeker and employer are provided in the LoginInfo.js file in src/Data folder
+
 ### `npm test a`
 
 Launches the test runner in the interactive watch mode.
