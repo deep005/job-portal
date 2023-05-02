@@ -1,4 +1,4 @@
-import JobList from "../Data/JobList";
+import JobList from "../Data/JobList.json";
 
 // eslint-disable-next-line no-restricted-globals
 onmessage = (event) => {

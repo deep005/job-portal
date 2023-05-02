@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from "react";
 import AppContext from "../../../store/app-context";
-import applicantsData from "../../../Data/Applicants";
+import applicantsData from "../../../Data/Applicants.json";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import JobPostingsListListItem from "../../UI/JobPostingsListListItem";
