@@ -6,6 +6,7 @@ onmessage = (event) => {
 
   let skillsFilteredJobs = [];
   let slarayFilterJobs = [];
+  const selectedJobIds = [];
   if (filterSkills.length) {
     for (let i = 0; i < JobList.length; i++) {
       for (let j = 0; j < filterSkills.length; j++) {
@@ -14,7 +15,19 @@ onmessage = (event) => {
             .toLocaleLowerCase()
             .includes(filterSkills[j].toLocaleLowerCase())
         ) {
-          skillsFilteredJobs.push(JobList[i]);
+          let flag = 0;
+          for (let k = 0; k < selectedJobIds.length; k++) {
+            if (JobList[i].id !== selectedJobIds[k]) {
+              flag = 1;
+            } else {
+              flag = 0;
+              break;
+            }
+          }
+          if (flag || !selectedJobIds.length) {
+            skillsFilteredJobs.push(JobList[i]);
+            selectedJobIds.push(JobList[i].id);
+          }
         }
       }
     }
