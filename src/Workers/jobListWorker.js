@@ -25,7 +25,7 @@ onmessage = (event) => {
     const minSalaryFilterValue = parseFloat(filterMinSalary.substring(1));
     for (let i = 0; i < skillsFilteredJobs.length; i++) {
       const perHour = parseFloat(skillsFilteredJobs[i].perHour.substring(1));
-      if (minSalaryFilterValue < perHour) {
+      if (minSalaryFilterValue <= perHour) {
         slarayFilterJobs.push(skillsFilteredJobs[i]);
       }
     }
